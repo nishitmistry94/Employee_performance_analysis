@@ -4,6 +4,14 @@ class analysis:
         pass
 
     def calPerHeadProjectValue(self):
+        '''
+            Per head project Value is calculated 
+            project_market_value/persons_Working_on_this_project
+
+            returns:
+
+            A Dictionary with Project name and its per head value 
+        '''
         f=open("projects.csv",'r')
         lines= f.readlines()
         f.close()
@@ -12,7 +20,7 @@ class analysis:
         for i in lines[1:]:
             i=i.split(",")
             if i[1] in d:
-                # incrementing the counr
+                # incrementing the count
                 d[i[1]] += 1
             else:
                 # initializing the count
@@ -27,6 +35,14 @@ class analysis:
 
 
     def calEmployeeWorth(self,id,salary):
+        '''
+            employee Worth is calculated here
+
+                        VALUE PER HEAD
+            --------------------------------------------
+            SALARY TAKEN DURING THE DURATION OF PROJECTS
+
+        '''
         f=open("projects.csv",'r')
         lines= f.readlines()
         employeeWorth=0
@@ -46,15 +62,18 @@ class analysis:
         for i in l:
             i=lines[i].split(",")
             duration= datetime.datetime(int(i[4][-2:]),int(i[4][-5:-3]),int(i[4][:2]))-datetime.datetime(int(i[2][-2:]),int(i[2][-5:-3]),int(i[2][:2]))
-            print(duration)
             sumPerHead+=valuePerHead[i[1]]
             expenseOnEmployee+=perDaySalary*duration.days
         employeeWorth=sumPerHead/expenseOnEmployee
-        print(sumPerHead)
-        print(employeeWorth)
         return employeeWorth
     
     def employeeDetail(self,id):
+        '''
+            THIS FUCNTION RETURNS THE EMPLOYEE DETAILS
+            RETURNS
+                DETAILS OF EMPLOYEE 
+
+        '''
         f=open('Employee_details.csv')
         lines=f.readlines()
         f.close()
@@ -65,6 +84,11 @@ class analysis:
                 
     
     def incentives(self,id,margin):
+        '''
+            INCENTIVE WHICH CAN BE GIVEN TO THE EMPLOYEE IS CALCULATED
+
+            PRINTS INCENTIVES
+        '''
         a=self.employeeDetail(id)
         profit_givenout=float(a[4])-1
         incentive_multiplier=profit_givenout-(margin/100)
@@ -73,6 +97,4 @@ class analysis:
             print("No incentives can be given to this employee")
         else:
             print(str(round(incentive_multiplier*int(a[3])))+" Rupees of incentives can be given")
-
-
 

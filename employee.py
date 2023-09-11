@@ -14,6 +14,10 @@ class employee():
         self.write()
 
     def write(self):
+        '''
+            THIS FUNCTIONS WRITE THE DATA INTO FILE 
+            EMPLOYEE_DETAILS.CSV
+        '''
         f=open('Employee_details.csv')
         lines=f.readlines()
         f.close()

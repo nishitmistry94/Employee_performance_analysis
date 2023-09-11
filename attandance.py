@@ -5,6 +5,9 @@ class attandance:
         plt.figure(figsize=(15,6))
         pass
     def monthlyView(self,emp_id,getCountOnly=False):
+        '''
+            MONTHLY VIEW OF LAST 30 DAYS HRS WORKED IS DISPLAY IN GRAPH
+        '''
         try:
             f = open('attandance_sheets//'+str(emp_id)+'.csv','r')
         except:
