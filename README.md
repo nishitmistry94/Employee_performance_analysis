@@ -6,7 +6,8 @@
 Concept behind this project
 </h1>
 <p>
-On what basis a employee's performance can be judged? Obviously by how much work he does in an organisation,by how much an employee brings value to the company as.
+On what basis a employee's performance can be judged? Obviously by how much work he does in an organisation,by how much an employee brings value to the company as.<br>
+A Decimal number EPI consider it better the greater it is. With the attandance record Graph and count.
 </p>
 <p>
 Keeping this in mind i along with my project teammate Khushil and ayush made this project
